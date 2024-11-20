@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if (posters && posters.length > 0) { %>
+    <ul>
+      <% posters.forEach(function(poster) { %>
+      <li>
+        <h2><%= poster.title %></h2>
+        <p><%= poster.description %></p>
+        <img src="<%= poster.imageUrl %>" alt="<%= poster.title %>" />
+      </li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <p>No posters available.</p>
+    <% } %>
+
+    <h2>Using the Terminal in Visual Studio Code</h2>
+    <pre>
+        <code>
+            # Open the terminal
+            Ctrl + `
+
+            # Run a command
+            node app.js
+        </code>
+    </pre>
+</body>
+</html>

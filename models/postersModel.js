@@ -18,15 +18,19 @@ export class PostersModel {
   }
 
   static async getRecordById(id) {
-    let { data, error } = await supabase
-      .from("posters")
-      .select("name, description, price, stock")
-      .eq("id", id)
-      .single();
-    if (error) {
-      throw new Error(error.message);
-    } else {
-      return data;
+    try {
+      let { data, error } = await supabase
+        .from("posters")
+        .select("name, description, price, stock")
+        .eq("id", id)
+        .single();
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Fejl: kan ikke hente poster, ${error}`);
     }
   }
 

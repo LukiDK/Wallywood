@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 import { posterController } from "./controllers/postersController.js";
+import { genreController } from "./controllers/genresController.js";
+import { cartlineController } from "./controllers/cartlineController.js";
 import express from "express";
 import path from "path";
 
@@ -15,6 +17,10 @@ app.get("/", (req, res) => {
 });
 
 app.use(posterController)
+
+app.use(genreController)
+
+app.use(cartlineController)
 
 // Start the server
 const PORT = process.env.PORT || 3000;

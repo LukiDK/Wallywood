@@ -1,9 +1,10 @@
 import dotenv from "dotenv";
+import express from "express";
 import { posterController } from "./controllers/postersController.js";
 import { genreController } from "./controllers/genresController.js";
 import { cartlineController } from "./controllers/cartlineController.js";
-import express from "express";
-import path from "path";
+import { userProfileController } from "./controllers/user_profilesController.js";
+import { userRatingController } from "./controllers/user_ratingController.js";
 
 dotenv.config();
 
@@ -16,11 +17,11 @@ app.get("/", (req, res) => {
   res.send("Hellow world");
 });
 
-app.use(posterController)
-
-app.use(genreController)
-
-app.use(cartlineController)
+app.use(posterController);
+app.use(genreController);
+app.use(cartlineController);
+app.use(userProfileController);
+app.use(userRatingController);
 
 // Start the server
 const PORT = process.env.PORT || 3000;

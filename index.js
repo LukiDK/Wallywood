@@ -17,6 +17,15 @@ app.get("/", (req, res) => {
   res.send("Hellow world");
 });
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.use(posterController);
 app.use(genreController);
 app.use(cartlineController);

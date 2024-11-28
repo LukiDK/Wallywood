@@ -6,7 +6,7 @@ export class PostersModel {
       // Kald til database
       let { data, error } = await supabase
         .from("posters")
-        .select("id, name, description, price, stock");
+        .select("*");
       if (error) {
         throw new Error(error.message);
       } else {

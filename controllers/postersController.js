@@ -4,9 +4,12 @@ import { PostersModel } from "../models/postersModel.js";
 export const posterController = express.Router();
 
 posterController.get("/poster", async (req, res) => {
-  let poster = await PostersModel.getAllRecords();
-
-  res.send(console.log(poster));
+  try {
+    const data = await PostersModel.getAllRecords();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 posterController.post("/poster", async (req, res) => {
